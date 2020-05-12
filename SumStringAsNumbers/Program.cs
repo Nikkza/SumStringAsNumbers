@@ -9,7 +9,6 @@ namespace SumStringAsNumbers
     {
         static void Main(string[] args)
         {
-
             while (true)
             {
                 string input = Console.ReadLine();
@@ -24,7 +23,7 @@ namespace SumStringAsNumbers
             BigInteger results = 0;
             BigInteger valueB = 0;
             BigInteger valueA = 0;
-            if (!(string.IsNullOrEmpty(inputString)))
+            if (!(string.IsNullOrEmpty(inputString) || !inputString.Contains(",")))
             {
                 var splitString = inputString.Split(',');
                 var numberA = ListAsChar(splitString[0]);
@@ -37,10 +36,10 @@ namespace SumStringAsNumbers
                         results = valueA + valueB;
                 }
                 else
-                    return "Can't parse";
+                    return "You forgot one value! You must write like this ex: 12,2";
             }
             else
-                return "Sum is 0";
+                return "String is empty or dosen,t contains(',')";
 
             return $"Sum is: {results.ToString()}";
         }
